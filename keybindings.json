@@ -81,7 +81,7 @@
     {
         "key": "ctrl+j",
         "command": "workbench.action.togglePanel",
-        "when": "!terminalFocus"
+        "when": "!terminalFocus && !inFilesPicker && !inQuickOpen"
     },
     {
         "key": "ctrl+j",
@@ -98,5 +98,15 @@
             "text": "\u001b[A"
         },
         "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
     },
 ]
