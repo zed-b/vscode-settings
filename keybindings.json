@@ -10,7 +10,8 @@
     },
     {
         "key": "ctrl+'",
-        "command": "workbench.action.terminal.toggleTerminal"
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "!terminalFocus"
     },
     {   "key": "ctrl+'",
         "command": "workbench.action.focusActiveEditorGroup",
@@ -29,6 +30,7 @@
         "command": "-workbench.action.closeWindow",
         "when": "!editorIsOpen && !multipleEditorGroups"
     },
+    // alt+num
     {
         "key": "alt+1",
         "command": "workbench.action.terminal.focusAtIndex1",
@@ -74,13 +76,25 @@
         "command": "workbench.action.terminal.focusAtIndex9",
         "when": "terminalFocus"
     },
+    // JK
     {
-        "key": "ctrl+j",
-        "command": "-workbench.action.togglePanel",
+        "key": "ctrl+shift+j",
+        "command": "-workbench.action.search.toggleQueryDetails",
+        "when": "inSearchEditor || searchViewletFocus"
     },
     {
-        "key": "ctrl+j",
-        "command": "workbench.action.togglePanel",
+        "key": "ctrl+shift+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "!terminalFocus && !inFilesPicker && !inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.nextEditorInGroup",
         "when": "!terminalFocus && !inFilesPicker && !inQuickOpen"
     },
     {
@@ -108,5 +122,45 @@
         "key": "ctrl+k",
         "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
+    },
+    // c-a, c-c, c-v
+    {
+        "key": "ctrl+c",
+        "command": "-extension.vim_ctrl+c",
+        "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-extension.vim_ctrl+a",
+        "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-extension.vim_ctrl+v",
+        "when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+    },
+    // c-;
+    {
+        "key": "ctrl+;",
+        "command": "cmake.debugTarget",
+        "when": "inCMakeProject && !cmake:hideDebugCommand && !inDebugMode"
+    },
+    {
+        "key": "ctrl+;",
+        "command": "workbench.action.debug.start",
+        "when": "!inCMakeProject && !inDebugMode"
+    },
+    {
+        "key": "ctrl+shift+;",
+        "command": "workbench.action.debug.selectandstart"
+    },
+    // c-`
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "workbench.action.toggleSidebarVisibility"
     },
 ]
